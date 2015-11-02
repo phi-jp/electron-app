@@ -1,40 +1,26 @@
 var packager = require('electron-packager');
 var config = require('./package.json');
 
-
 packager({
-  dir: './',
-  out: './dist',
-  name: config.name,
+  dir: './',          // 対象
+  out: './dist',      // 出力先
+  name: config.name,  // 名前
   platform: 'darwin', // or win32
-  arch: 'x64',
-  version: '0.30.0',
-  icon: './app.icns',
+  arch: 'x64',        // 64bit
+  version: '0.34.2',  // electron のバージョン
+  icon: './app.icns', // アイコン
 
   'app-bundle-id': 'jp.phi.electron-app', // ドメイン
+  'app-version': config.version,          // バージョン
 
-  'app-version': config.version,
-
-  overwrite: true,
-  asar: true,
+  overwrite: true,  // 上書き
+  asar: true,       // アーカイブ
   prune: true,
+  // 無視ファイル
   ignore: "node_modules/(electron-packager|electron-prebuilt|\.bin)|release\.js",
-
-  'version-string': {
-    CompanyName: '会社名',
-    FileDescription: 'アプリケーションの説明',
-    OriginalFilename: config.name,
-    FileVersion: config.version,
-    ProductVersion: config.version,
-    ProductName: config.name,
-    InternalName: config.name
-  }
 }, function done (err, appPath) {
   if(err) {
     throw new Error(err);
   }
   console.log('Done!!');
 });
-
-
-

@@ -1,3 +1,7 @@
+/*
+ * index.js
+ */
+
 'use strict';
 
 // アプリケーションをコントロールするモジュール
@@ -10,7 +14,7 @@ var currentURL = 'file://' + __dirname + '/index.html';
 // クラッシュレポート
 require('crash-reporter').start();
 
-// メインウィンドウはGCされないようにグローバル宣言
+// メインウィンドウ
 var mainWindow = null;
 
 // 全てのウィンドウが閉じたら終了
@@ -22,11 +26,13 @@ app.on('window-all-closed', function() {
 
 // Electronの初期化完了後に実行
 app.on('ready', function() {
-  // メイン画面の表示。ウィンドウの幅、高さを指定できる
+  // メイン画面のサイズ
   mainWindow = new BrowserWindow({width: 800, height: 600});
+  // 起動 url を指定
   mainWindow.loadUrl(currentURL);
 
-  // open developer tools
+  // デベロッパーツールを表示
+  // 不要であればコメントアウト
   mainWindow.toggleDevTools();
 
   // ウィンドウが閉じられたらアプリも終了
