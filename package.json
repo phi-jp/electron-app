@@ -2,9 +2,8 @@
   "name": "electron-app",
   "version": "1.0.0",
   "description": "electron-app",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node_modules/.bin/electron .",
     "build": "node build.js"
   },
@@ -19,7 +18,7 @@
   },
   "homepage": "https://github.com/phi-jp/electron-app",
   "devDependencies": {
-    "electron-prebuilt": "^0.34.2",
-    "electron-packager": "^5.1.1"
+    "electron-packager": "^5.1.1",
+    "electron-prebuilt": "^0.34.2"
   }
 }
